@@ -14,7 +14,7 @@ class ContactRepository(application : Application) {
 
     fun insert(contact: Contact) {
         try {
-            val thread = Thread(Runnable { //Room DB를 메인쓰레드에서 접근하면 크래쉬가 발생함
+            val thread = Thread({ //Room DB를 메인쓰레드에서 접근하면 크래쉬가 발생함
                 contactDao.insert(contact) })
             thread.start()
         } catch (e : Exception) {}
