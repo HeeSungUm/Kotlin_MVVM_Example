@@ -1,9 +1,10 @@
 package com.heesungum.kotlin_mvvm_example
 
 import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 
-class ContactViewModel (application : Application) {
+class ContactViewModel (application : Application) : AndroidViewModel(application) {
 
     private val repository = ContactRepository(application)
     private val contacts = repository.getAll()
