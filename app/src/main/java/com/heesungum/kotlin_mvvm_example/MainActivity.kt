@@ -1,5 +1,6 @@
 package com.heesungum.kotlin_mvvm_example
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         contactViewModel.getAll().observe(this, {
             adapter.setContacts(it)
         })
+
+        main_btn_add.setOnClickListener {
+            val intent = Intent(this, AddActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
